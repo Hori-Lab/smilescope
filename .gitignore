@@ -1,0 +1,8 @@
+.conda-env/
+.condarc.local
+__pycache__/
+node_modules/
+data/processed/
+dist/
+.DS_Store
+development-note.md

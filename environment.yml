@@ -1,0 +1,8 @@
+name: smilescope
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.12
+  - rdkit=2026.09.2
+  - nodejs=22

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Calculate logP, molecular weight, TPSA, HBD, HBA, rotatable bonds and Fsp3 from SMILES with RDKit">
+  <title>SMILEScope</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='14' fill='%231b4f7a'/%3E%3Cpath d='M12 29 L23 20 L34 29' stroke='%23cde8ff' stroke-width='3' fill='none'/%3E%3Ccircle cx='12' cy='29' r='4' fill='%23cde8ff'/%3E%3Ccircle cx='23' cy='20' r='4' fill='%23cde8ff'/%3E%3Ccircle cx='34' cy='29' r='4' fill='%23cde8ff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <main class="workspace">
+    <header class="intro">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <div>
+        <h1>SMILEScope</h1>
+        <p>Calculate molecular properties from SMILES</p>
+      </div>
+    </header>
+
+    <noscript><p class="load-state">Enable JavaScript to use SMILEScope.</p></noscript>
+
+    <section id="calculator" aria-label="Calculator">
+      <form id="smiles-form" class="card input-card" novalidate>
+        <label for="smiles-input">SMILES</label>
+        <div class="input-row">
+          <input id="smiles-input" type="text" spellcheck="false" autocomplete="off" autocapitalize="off"
+                 autocorrect="off" enterkeyhint="go" placeholder="e.g. CC(=O)Oc1ccccc1C(=O)O"
+                 aria-describedby="engine-status">
+          <button id="calculate" class="primary" type="submit" disabled>Calculate</button>
+        </div>
+        <div class="examples">
+          <span id="examples-label">Examples</span>
+          <div class="example-list" role="group" aria-labelledby="examples-label">
+            <button class="example" type="button" data-smiles="CC(=O)Oc1ccccc1C(=O)O" disabled>Aspirin</button>
+            <button class="example" type="button" data-smiles="Cn1cnc2c1c(=O)n(C)c(=O)n2C" disabled>Caffeine</button>
+            <button class="example" type="button" data-smiles="CC(C)Cc1ccc(cc1)C(C)C(=O)O" disabled>Ibuprofen</button>
+            <button class="example" type="button" data-smiles="CC(=O)Nc1ccc(O)cc1" disabled>Paracetamol</button>
+          </div>
+        </div>
+        <p id="engine-status" class="hint" role="status"></p>
+        <button id="retry-engine" class="secondary" type="button" hidden>Try again</button>
+      </form>
+
+      <div id="feedback" aria-live="polite" aria-atomic="true">
+        <div id="feedback-card" class="feedback-card" data-result="input" hidden>
+          <p id="result-message"></p>
+        </div>
+      </div>
+
+      <div id="results" class="exercise" hidden>
+        <section class="card structure" aria-labelledby="structure-heading">
+          <h2 id="structure-heading">Chemical structure</h2>
+          <div class="image-frame">
+            <img id="structure-image" width="680" height="420" alt="">
+          </div>
+        </section>
+
+        <section class="card properties-card" aria-labelledby="properties-heading" aria-live="polite">
+          <h2 id="properties-heading">Properties</h2>
+          <table class="properties">
+            <caption class="visually-hidden">Molecular properties calculated by RDKit</caption>
+            <tbody id="property-rows"></tbody>
+          </table>
+          <p class="canonical">Canonical SMILES <code id="canonical-smiles"></code></p>
+        </section>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    © Naoto Hori <span aria-hidden="true">·</span> <a href="https://hori-lab.github.io/">Hori Lab</a>
+  </footer>
+</body>
+</html>

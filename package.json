@@ -1,0 +1,13 @@
+{
+  "name": "smilescope",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/package-site.mjs",
+    "test": "python tests/python_reference.py && node --test tests/*.test.mjs",
+    "preview": "python -m http.server --bind 127.0.0.1 --directory dist 8000"
+  },
+  "dependencies": {
+    "@rdkit/rdkit": "2026.9.2"
+  }
+}
