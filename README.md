@@ -1,6 +1,6 @@
 # SMILEScope
 
-Calculate molecular properties from SMILES at <https://hori-lab.github.io/smilescope/>.
+View chemical structure and molecular properties from a SMILES string at <https://hori-lab.github.io/smilescope/>.
 
 Enter a SMILES and select **Calculate**. SMILEScope draws the two-dimensional structure and reports logP, molecular weight, TPSA, H-bond donors, H-bond acceptors, rotatable bonds and Fsp3.
 

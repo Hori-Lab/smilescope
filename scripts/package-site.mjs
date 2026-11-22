@@ -16,5 +16,5 @@ await Promise.all([
   copyFile(join(rdkit, 'RDKit_minimal.js'), join(vendor, 'RDKit_minimal.js')),
   copyFile(join(rdkit, 'RDKit_minimal.wasm'), join(vendor, 'RDKit_minimal.wasm')),
   // The npm package omits RDKit's BSD licence, so ship the copy kept in this repository.
-  copyFile(join(root, 'licenses', 'RDKit-LICENSE.txt'), join(vendor, 'LICENSE')),
+  copyFile(join(root, 'licenses', 'RDKit-LICENSE.txt'), join(vendor, 'RDKit-LICENSE.txt')),
 ]);
